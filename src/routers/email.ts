@@ -1,11 +1,12 @@
 import { Router } from 'express';
 import { EmailController } from '../controllers/EmailController';
+import { validateParams } from '../middlewares/validateParams';
 
 export class EmailRouter {
 	#router = Router();
 
 	constructor() {
-		this.#router.get('/send', EmailController.sendEmail);
+		this.#router.post('/send', validateParams, EmailController.handleEmail);
 	}
 
 	getRouter() {

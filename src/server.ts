@@ -4,6 +4,9 @@ import { EmailRouter } from './routers/email';
 
 const app = express();
 
+//*config
+app.use(express.json());
+
 //*class
 const email = new EmailRouter().getRouter();
 
