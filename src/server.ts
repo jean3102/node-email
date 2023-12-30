@@ -8,10 +8,10 @@ const app = express();
 app.use(express.json());
 
 //*class
-const email = new EmailRouter().getRouter();
+const Email = new EmailRouter().getRouter();
 
 //*routers
-app.use('/email', email);
+app.use('/email', Email);
 
 app.listen(DOCKER_PORT, () => {
 	console.log(`server is running on port: ${DOCKER_PORT}`);
