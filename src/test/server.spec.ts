@@ -1,5 +1,5 @@
-const request = require('supertest');
-const app = require('../server/app'); // Update the path accordingly
+import request from 'supertest';
+import app from '../server/app'; // Update the path accordingly
 
 
 describe('Test Express App', () => {
