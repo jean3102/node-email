@@ -2,9 +2,11 @@ export const isObjectNotEmpty = (obj: {}): boolean => {
 	return Object.keys(obj).length > 0;
 };
 
-export const isValidEmail = (email: string): boolean => {
-	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-	return emailRegex.test(email);
+export const isValidEmail = (emails: string[]): boolean | undefined => {
+	for (const email of emails) {
+		const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+		return emailRegex.test(email);
+	}
 };
 
 export const isValidHtml = (html: string): boolean => {

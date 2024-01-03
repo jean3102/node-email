@@ -2,7 +2,12 @@ import { API_KEY } from '../config/envVariable';
 import { EmailContent } from '../types/emailContent';
 import { Resend } from 'resend';
 export class EmailModels {
-	static async sendEmail({ from, html, to, subject}: EmailContent): Promise<string> {
+	static async sendEmail({
+		from,
+		html,
+		to,
+		subject,
+	}: EmailContent): Promise<string> {
 		const resend = new Resend(API_KEY);
 
 		const { error } = await resend.emails.send({
@@ -12,7 +17,8 @@ export class EmailModels {
 			html: html,
 		});
 
-		if (error) throw new Error(`Error sending email: ${error.message}`);
+		if (error) throw new Error(`${error.message}`);
+		
 		return 'Email sent successfully';
 	}
 }
