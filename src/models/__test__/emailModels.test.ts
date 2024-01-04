@@ -7,12 +7,7 @@ const email = {
 };
 describe('Email controller', () => {
 	test('when domain is undefined', async () => {
-		try {
-			await EmailModels.sendEmail({ ...email, from: '' });
-		} catch (error) {
-			if (error instanceof Error) {
-				expect(error.message).toBe('The domain is invalid');
-			}
-		}
+		const emailModel = EmailModels.sendEmail({ ...email, from: '' });
+		await expect(emailModel).rejects.toThrow('The domain is invalid');
 	});
 });
